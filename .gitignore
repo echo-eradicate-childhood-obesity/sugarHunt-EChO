@@ -39,11 +39,11 @@ sysinfo.txt
 *.unitypackage
 
 # csproj files
-#*.csproj
+*.csproj
 
 # folders to ignore
-#ProjectSettings/
-#Packages/
-#obj/
-#Logs/
-#Library/
+ProjectSettings/
+Packages/
+obj/
+Logs/
+Library/
