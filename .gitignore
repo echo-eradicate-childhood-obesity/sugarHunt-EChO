@@ -39,7 +39,7 @@ sysinfo.txt
 *.unitypackage
 
 # csproj files
-*.csproj
+#*.csproj
 
 # folders to ignore
 ProjectSettings/
