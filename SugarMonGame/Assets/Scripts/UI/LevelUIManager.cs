@@ -117,7 +117,6 @@ public class LevelUIManager : MonoBehaviour
             if (group._currentButton)
             {
                 group._currentButton.onClick.AddListener(() => PlayLevel(panel.GetSiblingIndex())); //Set the current button to be active
-                print(panel.GetSiblingIndex() + "\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
                 group._currentButton.interactable = true;
                 child.GetComponent<Text>().text = buttonGroups[i]._name + " - " + (buttonGroups[i]._currentButtonIndex) + "/" + buttonGroups[i]._buttonCount;
             }
@@ -283,7 +282,7 @@ public class LevelUIManager : MonoBehaviour
     public void UpdateUIStats()
     {
         PlayerInfoScript play = PlayerInfoScript.instance;
-        tempCoins.text = play.GetCoinCount().ToString("00000000");
+        tempCoins.text = play.GetCoinCount().ToString("00000000");//change the innital coin display here
         tempLevel.transform.parent.transform.Find("Fill").GetChild(0).GetComponent<Image>().fillAmount = play.GetPercentageToNextLevel();
         tempLevel.text = "" + play.GetLevel();
     }

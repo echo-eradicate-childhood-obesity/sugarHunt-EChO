@@ -50,7 +50,7 @@ public class SpawnMonsters : MonoBehaviour
             {
                 //Each level is offset but 10 levels to make it more challenging in other groups
                 int level = player.GetCurrentGroup() * 25 + player.GetLevelInSugarGroup(player.GetCurrentGroup());
-                monster.GetComponent<MonsterScript>().InitMonster(_cameraTransform.position, _radius, _canvas, level);
+                monster.GetComponent<MonsterScript>().InitMonster(_cameraTransform.position, _radius, _canvas, level);//leveling setting here ##############
             }
             else //For testing purposes 
                 monster.GetComponent<MonsterScript>().InitMonster(_cameraTransform.position, _radius, _canvas, 0);

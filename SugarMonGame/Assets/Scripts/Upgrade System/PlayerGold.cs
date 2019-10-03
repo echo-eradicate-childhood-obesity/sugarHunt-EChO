@@ -92,7 +92,7 @@ public class PlayerGold : MonoBehaviour
     }
 
     [ContextMenu("Set Gold to Zero")]
-    public void SetGoldToZero()
+    public void SetGoldToZero() 
     {
         gold = 0;
         UpdateGold();

@@ -100,6 +100,8 @@ public class AchievementsScript : MonoBehaviour
 
                 if (index > completedIndex - 1)
                 {
+
+                    print(achievement[i]._coinReward + " coin achievement " + i);
                     print(achievement[i].wording);
                     info.AddCoins(achievement[i]._coinReward);
                     xpToAdd += achievement[i]._xpReward;
@@ -116,6 +118,7 @@ public class AchievementsScript : MonoBehaviour
         if (xpToAdd > 0)
         {
             info.AddXp(xpToAdd);
+            print(xpToAdd + " xp achievement \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
             switch (key)
             {
                 case 0:

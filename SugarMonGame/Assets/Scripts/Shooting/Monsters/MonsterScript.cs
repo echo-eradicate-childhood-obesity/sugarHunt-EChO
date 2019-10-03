@@ -158,12 +158,13 @@ public abstract class MonsterScript : MonoBehaviour
             _redFill.transform.localScale = new Vector3(_health / _maxHealth, 1,1);
     }
     
-    private void OnDestroy() {
+    private void OnDestroy() {//bug #########################
         if (!_didDealDamage)
         {
             PlayerInfoScript info = PlayerInfoScript.instance;
             if (info) //If the PlayerInfoScript exists (ran game from main menu) add proper xp/coins
             {
+                print(_didDealDamage);
                 info.AddCoinsInLevel(_coins);
                 info.AddXPInLevel(_xp);
                 info.AddToTotalKills();
@@ -172,6 +173,7 @@ public abstract class MonsterScript : MonoBehaviour
             {
                 Debug.Log("No PlayerInfoScript found!");
             }
+            _didDealDamage = !_didDealDamage;
         }       
         _sm.RemoveMonster(gameObject);
     }

@@ -146,6 +146,7 @@ public class PlayerScript : MonoBehaviour
         {
             TakeDamage(collision.gameObject.GetComponent<MonsterScript>().GetDamage(), collision.gameObject);
             collision.gameObject.GetComponent<MonsterScript>().SetDidDealDamage();
+            print("2");
         }           
         if(collision.gameObject.tag == "EnemyBullet") //If the collider belongs to an enemy bullet deal damage
             TakeDamage(collision.gameObject.GetComponent<EnemyBulletScript>()._damage, collision.gameObject);              
