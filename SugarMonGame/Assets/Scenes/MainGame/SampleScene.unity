@@ -525,7 +525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66adba5130b976244b421612e0af41d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _IsTesting: 0
+  _IsTesting: 1
   _mouseSensitivityX: 3
   _mouseSensitivityY: 3
   _projectile: {fileID: 981997401250377981, guid: b21135089ae2cf44c8a87c9f7b602029,
@@ -1315,12 +1315,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _monsterPrefabs:
-  - {fileID: 5311621072671175626, guid: f875b0a18aa1640739b306b5f9279104, type: 3}
-  - {fileID: 3650833269785551419, guid: d30e6d30282ff4514a1f646e3f6b173f, type: 3}
-  - {fileID: 3033686775468499890, guid: ea274a532ce044f2eb3976334aec84f7, type: 3}
-  - {fileID: 4286824325088411841, guid: de4b101cdcf0c48568a95c84e538542d, type: 3}
-  - {fileID: 1841709307030692380, guid: 2532f44ddaa534cf4b28ab76c4ce14cd, type: 3}
-  - {fileID: 3057234713603134301, guid: 7a5deda10e69c4220a3ae8b97a2ee6bf, type: 3}
+  - {fileID: 2054492351403364578, guid: cd591c8dec745264c818fdaaebbbd1ec, type: 3}
+  - {fileID: 2054492351403364578, guid: 75e1d96c68669ab4186ffd56e9357248, type: 3}
+  - {fileID: 2054492351403364578, guid: 56b36423dd752b649aae8f39098cee90, type: 3}
+  - {fileID: 2054492351403364578, guid: 57793a0b8149ff2448129ed923e8c3c0, type: 3}
+  - {fileID: 2054492351403364578, guid: 829fdd804cd807948b7ee7c32aff56ad, type: 3}
+  - {fileID: 2054492351403364578, guid: 90af6a1491761014b8372c3113485721, type: 3}
+  - {fileID: 2054492351403364578, guid: 33440725bead4d1428a7e429c7591302, type: 3}
+  - {fileID: 2054492351403364578, guid: 26aba9bd5bddddb469fbd853e254f98d, type: 3}
   _radius: 10
   _winPanel: {fileID: 218472793}
 --- !u!1 &1061038743

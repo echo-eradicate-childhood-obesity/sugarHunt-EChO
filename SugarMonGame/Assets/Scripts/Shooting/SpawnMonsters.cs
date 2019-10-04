@@ -10,7 +10,7 @@ public class SpawnMonsters : MonoBehaviour
     #region PUBLIC_VARS
     public static SpawnMonsters instance;
 
-    [Tooltip("The minions prefab of a monster")]                    public List<GameObject> _monsterPrefabs;
+    [Tooltip("The minions prefab of a monster")]                    public List<GameObject>_monsterPrefabs;
     [Tooltip("The max distance from the camera a monster can get")] public float _radius = 10;
     [Tooltip("Win Panel reference")]                                public GameObject _winPanel;
     #endregion
