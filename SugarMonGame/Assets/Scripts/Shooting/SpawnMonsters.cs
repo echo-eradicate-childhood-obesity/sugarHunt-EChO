@@ -9,8 +9,18 @@ public class SpawnMonsters : MonoBehaviour
 {
     #region PUBLIC_VARS
     public static SpawnMonsters instance;
+    public int sugarCatagory;
 
-    [Tooltip("The minions prefab of a monster")]                    public List<GameObject>_monsterPrefabs;
+    [Tooltip("The list of chosen")]                                 private List<GameObject>_chosenList;
+    [Tooltip("The list of chosen")]                                 private int _chosenListLength;
+    [Tooltip("The list of cane")]                                   public List<GameObject>_caneMonster;
+    [Tooltip("The list of concentrate")]                            public List<GameObject> _concentrateMonster;
+    [Tooltip("The list of dextrin")]                                public List<GameObject> _dextrinMonster;
+    [Tooltip("The list of obvios")]                                 public List<GameObject> _obviosMonster;
+    [Tooltip("The list of OSE")]                                    public List<GameObject> _OSEMonster;
+    [Tooltip("The list of strange")]                                public List<GameObject> _strangeMonster;
+    [Tooltip("The list of syrup")]                                  public List<GameObject> _syrupMonster;
+
     [Tooltip("The max distance from the camera a monster can get")] public float _radius = 10;
     [Tooltip("Win Panel reference")]                                public GameObject _winPanel;
     #endregion
@@ -39,17 +49,72 @@ public class SpawnMonsters : MonoBehaviour
     /// </summary>
     IEnumerator SpawnEnemies(int num)
     {
+        PlayerInfoScript player = PlayerInfoScript.instance;
+
+        print("Current Group: " + player.GetCurrentGroup());
+
+        int index = player.GetCurrentGroup();
+
+        // set monsters depending on the current chosen sugar type
+        switch (index)
+        {
+            // cane
+            case 0:
+                _chosenList = _caneMonster;
+                print("cane");
+                break;
+            // concentrate
+            case 1:
+                _chosenList = _concentrateMonster;
+                print("concentrate");
+                break;
+            // dextrin
+            case 2:
+                _chosenList = _dextrinMonster;
+                print("dextrin");
+                break;
+            // Obvios
+            case 3:
+                _chosenList = _obviosMonster;
+                print("obvios");
+                break;
+            // ose
+            case 4:
+                _chosenList = _OSEMonster;
+                print("ose");
+                break;
+            // strange
+            case 5:
+                _chosenList = _strangeMonster;
+                print("strange");
+                break;
+            // syrup
+            case 6:
+                _chosenList = _syrupMonster;
+                print("syrup");
+                break;
+            default:
+                _chosenList = _OSEMonster;
+                print(index);
+                break;
+        }
+
+        // set the variable that holds length of monster list
+        _chosenListLength = _chosenList.Count;
+
         while (_monsters.Count < num)
         {
-            GameObject monster = Instantiate(_monsterPrefabs[Random.Range(0, _monsterPrefabs.Count)], transform.position, Quaternion.identity);
+            player = PlayerInfoScript.instance;
+            GameObject monster = Instantiate(_chosenList[Random.Range(0, _chosenListLength)], transform.position, Quaternion.identity);
             Vector3 vel = Random.onUnitSphere * Random.Range(2, 5);
             monster.GetComponent<Rigidbody>().velocity = vel;
-            PlayerInfoScript player = PlayerInfoScript.instance;
+
             //If the PlayerInfoScript exists (started game from menu)
             if (player)
             {
                 //Each level is offset but 10 levels to make it more challenging in other groups
-                int level = player.GetCurrentGroup() * 25 + player.GetLevelInSugarGroup(player.GetCurrentGroup());
+                int level = player.GetLevelInSugarGroup(player.GetCurrentGroup());
+                print("level: " + level);
                 monster.GetComponent<MonsterScript>().InitMonster(_cameraTransform.position, _radius, _canvas, level);//leveling setting here ##############
             }
             else //For testing purposes 

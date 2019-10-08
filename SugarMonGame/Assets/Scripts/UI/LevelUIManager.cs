@@ -62,7 +62,7 @@ public class LevelUIManager : MonoBehaviour
     private GameObject _mainMenuPanel;                                  // This is a reference to the main menu panel in the scene
     private GameObject _achievementPanel;                               // This is a reference to the achievements panel in the scene
 
-    private int _currentSelection = 0;                                  // This is a current button index that is showing on screen
+    private int _currentSelection = 0;                                   // This is a current button index that is showing on screen
     private float _selectionOffset;                                     // This is the offset position of the first button
     private float _targetLocation;                                      // This is the current target position       
     private Coroutine _selectionAnim = null;                            // This is a reference to the current coroutine running the animation
@@ -116,7 +116,7 @@ public class LevelUIManager : MonoBehaviour
             
             if (group._currentButton)
             {
-                group._currentButton.onClick.AddListener(() => PlayLevel(panel.GetSiblingIndex())); //Set the current button to be active
+                group._currentButton.onClick.AddListener(() => PlayLevel(_currentSelection)); //Set the current button to be active
                 group._currentButton.interactable = true;
                 child.GetComponent<Text>().text = buttonGroups[i]._name + " - " + (buttonGroups[i]._currentButtonIndex) + "/" + buttonGroups[i]._buttonCount;
             }
@@ -401,6 +401,11 @@ public class LevelUIManager : MonoBehaviour
         {
             print("ADDING XP");
             IncreaseXP(100);
+        }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            print(_currentSelection);
         }
     }
 
