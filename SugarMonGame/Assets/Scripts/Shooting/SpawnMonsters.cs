@@ -50,10 +50,16 @@ public class SpawnMonsters : MonoBehaviour
     IEnumerator SpawnEnemies(int num)
     {
         PlayerInfoScript player = PlayerInfoScript.instance;
+        int index;
 
-        print("Current Group: " + player.GetCurrentGroup());
-
-        int index = player.GetCurrentGroup();
+        if (player)
+        {
+            index = player.GetCurrentGroup();
+        }
+        else
+        {
+            index = 0;
+        }
 
         // set monsters depending on the current chosen sugar type
         switch (index)
@@ -106,7 +112,9 @@ public class SpawnMonsters : MonoBehaviour
         {
             player = PlayerInfoScript.instance;
             GameObject monster = Instantiate(_chosenList[Random.Range(0, _chosenListLength)], transform.position, Quaternion.identity);
+            // generate random velocity random
             Vector3 vel = Random.onUnitSphere * Random.Range(2, 5);
+            // setting the velocity 
             monster.GetComponent<Rigidbody>().velocity = vel;
 
             //If the PlayerInfoScript exists (started game from menu)
