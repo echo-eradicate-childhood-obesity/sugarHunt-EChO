@@ -11,15 +11,14 @@ public class SpawnMonsters : MonoBehaviour
     public static SpawnMonsters instance;
     public int sugarCatagory;
 
-    [Tooltip("The list of chosen")]                                 private List<GameObject>_chosenList;
-    [Tooltip("The list of chosen")]                                 private int _chosenListLength;
-    [Tooltip("The list of cane")]                                   public List<GameObject>_caneMonster;
-    [Tooltip("The list of concentrate")]                            public List<GameObject> _concentrateMonster;
-    [Tooltip("The list of dextrin")]                                public List<GameObject> _dextrinMonster;
-    [Tooltip("The list of obvios")]                                 public List<GameObject> _obviosMonster;
-    [Tooltip("The list of OSE")]                                    public List<GameObject> _OSEMonster;
-    [Tooltip("The list of strange")]                                public List<GameObject> _strangeMonster;
-    [Tooltip("The list of syrup")]                                  public List<GameObject> _syrupMonster;
+    [Tooltip("Chosen Monster")]                                     private GameObject _chosenMonster;
+    [Tooltip("Cane Monster")]                                       public GameObject _caneMonster;
+    [Tooltip("Concentrate Monster")]                                public GameObject _concentrateMonster;
+    [Tooltip("Dextrin Monsters")]                                   public GameObject _dextrinMonster;
+    [Tooltip("Obvios Monster")]                                     public GameObject _obviosMonster;
+    [Tooltip("OSE Monster")]                                        public GameObject _OSEMonster;
+    [Tooltip("Strange Monster")]                                    public GameObject _strangeMonster;
+    [Tooltip("Syrup Monster")]                                      public GameObject _syrupMonster;
 
     [Tooltip("The max distance from the camera a monster can get")] public float _radius = 10;
     [Tooltip("Win Panel reference")]                                public GameObject _winPanel;
@@ -66,52 +65,41 @@ public class SpawnMonsters : MonoBehaviour
         {
             // cane
             case 0:
-                _chosenList = _caneMonster;
-                print("cane");
+                _chosenMonster = _caneMonster;
                 break;
             // concentrate
             case 1:
-                _chosenList = _concentrateMonster;
-                print("concentrate");
+                _chosenMonster = _concentrateMonster;
                 break;
             // dextrin
             case 2:
-                _chosenList = _dextrinMonster;
-                print("dextrin");
+                _chosenMonster = _dextrinMonster;
                 break;
             // Obvios
             case 3:
-                _chosenList = _obviosMonster;
-                print("obvios");
+                _chosenMonster = _obviosMonster;
                 break;
             // ose
             case 4:
-                _chosenList = _OSEMonster;
-                print("ose");
+                _chosenMonster = _OSEMonster;
                 break;
             // strange
             case 5:
-                _chosenList = _strangeMonster;
-                print("strange");
+                _chosenMonster = _strangeMonster;
                 break;
             // syrup
             case 6:
-                _chosenList = _syrupMonster;
-                print("syrup");
+                _chosenMonster = _syrupMonster;
                 break;
             default:
-                _chosenList = _OSEMonster;
-                print(index);
+                _chosenMonster = _OSEMonster;
                 break;
         }
-
-        // set the variable that holds length of monster list
-        _chosenListLength = _chosenList.Count;
 
         while (_monsters.Count < num)
         {
             player = PlayerInfoScript.instance;
-            GameObject monster = Instantiate(_chosenList[Random.Range(0, _chosenListLength)], transform.position, Quaternion.identity);
+            GameObject monster = Instantiate(_chosenMonster, transform.position, Quaternion.identity);
             // generate random velocity random
             Vector3 vel = Random.onUnitSphere * Random.Range(2, 5);
             // setting the velocity 
