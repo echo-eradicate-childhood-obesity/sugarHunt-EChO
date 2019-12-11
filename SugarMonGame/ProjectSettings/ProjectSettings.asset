@@ -164,7 +164,8 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.EChO.GameTest
+    Android: com.EChO-Foundation.Sugar-Mon-Fight
+    iPhone: com.EChO-Foundation.Sugar-Mon-Fight
   buildNumber: {}
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 24
