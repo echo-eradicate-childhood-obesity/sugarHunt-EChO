@@ -185,6 +185,7 @@ MonoBehaviour:
   _startingHealth: 100
   _startingXP: 50
   _startingCoins: 50
+  monsterparticle: {fileID: 0}
 --- !u!96 &14385950262334564
 TrailRenderer:
   serializedVersion: 2

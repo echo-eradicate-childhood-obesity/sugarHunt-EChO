@@ -92,7 +92,7 @@ public class SpawnMonsters : MonoBehaviour
                 _chosenMonster = _syrupMonster;
                 break;
             default:
-                _chosenMonster = _OSEMonster;
+                _chosenMonster = _caneMonster;
                 break;
         }
 
@@ -158,7 +158,10 @@ public class SpawnMonsters : MonoBehaviour
 
             //Update the stats of the player
             info.AddLevelInSugarGroup();
-            _winPanel.SetActive(true); //Display win screen 
+            if (_winPanel != null)
+            {
+            _winPanel.SetActive(true); //Display win screen
+            }
             string stats = "Coins: " + info.GetCoinsFromLevel() + "\nXP: " + info.GetXpFromLevel();
             _winPanel.transform.Find("Stats").GetComponent<TextMeshProUGUI>().text = stats; //Update stats
         }
